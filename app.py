@@ -52,6 +52,7 @@ def webhook():
     return r
     return r1
 
+
 def makeWebhookResult(req):
     if req.get("result").get("action") != "topUniversity":
         return {}
