@@ -39,15 +39,18 @@ def webhook():
 
     print("Request:")
     print(json.dumps(req, indent=4))
-    res = makeWebhookResult(req)
-   
-   
+    res1 = makeWebhookResult(req)
+    res= processRequest(req)
+    res1 = json.dumps(res, indent=4)
     res = json.dumps(res, indent=4)
    
     # print(res)
     r = make_response(res)
+    r1 = make_response(res1)
     r.headers['Content-Type'] = 'application/json'
+    r1.headers['Content-Type'] = 'application/json'
     return r
+    return r1
 
 def makeWebhookResult(req):
     if req.get("result").get("action") != "topUniversity":
