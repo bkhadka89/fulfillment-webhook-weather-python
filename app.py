@@ -41,12 +41,33 @@ def webhook():
     print(json.dumps(req, indent=4))
 
     res = processRequest(req)
-
+    res = makeWebhookResult(req)
     res = json.dumps(res, indent=4)
     # print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
+
+
+def makeWebhookResult(req):
+    if req.get("result").get("action") != "topUniveristy":
+        return {}
+    result=req.get['result']
+    parameters=result.get['parameters']
+    stateName=parameters.get['geo-state']
+    topUniveristy={'Virginia':'1)Virgina Polytechnic Institue of State University'
+                              '2)University of Virgina'
+                              '3)George Mason University'
+                              '4)Virginia Commonwealth University'
+                              '5)Old Dominion University'}
+    speech="According to the Best Enginnering College Website. Top 5 Best Enginnering College in :"+ stateName+ "are"+str(stateName[topUniveristy])
+    print("Response: ")
+    print(speech)
+    return {
+        "speech":speech,
+        "displayText":speech,
+        "source": "apiai-weather-webhook-sample"
+    }
 
 
 def processRequest(req):
