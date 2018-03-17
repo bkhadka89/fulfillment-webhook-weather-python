@@ -55,9 +55,9 @@ def processRequest(req):
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    city = parameters.get("geo-city")
-    cost = {'Fairfax': '6.7 %','Fallschurch': '2.9%'}
-    speech = "Today the Interest rate in " + city + ": " + str(cost[city])
+    name = parameters.get("geo-city")
+    interestRate = {'fairfax': '6.7 %','fallschurch': '2.9%'}
+    speech = "Today the Interest rate in " + city + ": " + str(interestRate[name])
     print("Response:")
     print(speech)
 
@@ -66,7 +66,7 @@ def processRequest(req):
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
+        "source": "interestRates"
     }
 
 
