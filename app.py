@@ -59,7 +59,7 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
     stateName=parameters.get("geo-state")
-    topUniveristy={'va':'Virgina Polytechnic Institue of State University'}
+    topUniveristy={'Virginia':'Virgina Polytechnic Institue of State University'}
     if topUniveristy is None:
         return "I am from webhook"
 
