@@ -54,11 +54,7 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
     stateName=parameters.get["geo-state"]
-    topUniveristy={'va':'1)Virgina Polytechnic Institue of State University'
-                              '2)University of Virgina'
-                              '3)George Mason University'
-                              '4)Virginia Commonwealth University'
-                              '5)Old Dominion University'}
+    topUniveristy={'va':'Virgina Polytechnic Institue of State University'}
     speech="According to the Best Enginnering College Website. Top 5 Best Enginnering College in :"+ stateName+ "are"+str(stateName[topUniveristy])
     print("Response: ")
     print(speech)
