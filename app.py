@@ -40,9 +40,10 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
     res = makeWebhookResult(req)
-    res = processRequest(req)
+   
    
     res = json.dumps(res, indent=4)
+   
     # print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
@@ -53,8 +54,11 @@ def makeWebhookResult(req):
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    stateName=parameters.get["geo-state"]
+    stateName=parameters.get("geo-state")
     topUniveristy={'va':'Virgina Polytechnic Institue of State University'}
+    if topUniveristy is None:
+        return "I am from webhook"
+
     speech="According to the Best Enginnering College Website. Top 5 Best Enginnering College in :"+ stateName+ "are"+str(stateName[topUniveristy])
     print("Response: ")
     print(speech)
