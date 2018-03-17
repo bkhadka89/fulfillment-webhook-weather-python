@@ -53,17 +53,17 @@ def webhook():
     return r1
 
 
-def makeWebhookResult(req):
+def processRequest(req):
     if req.get("result").get("action") != "topUniversity":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    stateName=parameters.get("geo-state")
-    topUniveristy={'Virginia':'Virgina Polytechnic Institue of State University'}
-    if topUniveristy is None:
+    state=parameters.get("geo-state")
+    topUniversity={'Virginia':'Virgina Polytechnic Institue of State University'}
+    if topUniversity is None:
         return "I am from webhook"
 
-    speech="According to the Best Enginnering College Website. Top 5 Best Enginnering College in :"+ stateName+ "are"+str(stateName[topUniveristy])
+    speech="According to the Best Enginnering College Website. Top 5 Best Enginnering College in :"+ state+ "are"+str(state[topUniversity])
     print("Response: ")
     print(speech)
     return {
@@ -73,7 +73,7 @@ def makeWebhookResult(req):
     }
 
 
-def processRequest(req):
+def makeWebhookResult(req):
     if req.get("result").get("action") != "yahooWeatherForecast":
         return {}
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
