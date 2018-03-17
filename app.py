@@ -51,9 +51,9 @@ def webhook():
 def makeWebhookResult(req):
     if req.get("result").get("action") != "topUniveristy":
         return {}
-    result=req.get['result']
-    parameters=result.get['parameters']
-    stateName=parameters.get['geo-state']
+    result=req.get["result"]
+    parameters=result.get["parameters"]
+    stateName=parameters.get["geo-state"]
     topUniveristy={'Virginia':'1)Virgina Polytechnic Institue of State University'
                               '2)University of Virgina'
                               '3)George Mason University'
