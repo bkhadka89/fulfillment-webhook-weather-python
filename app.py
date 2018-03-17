@@ -49,12 +49,12 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "topUniveristy":
+    if req.get("result").get("action") != "topUniversity":
         return {}
-    result=req.get["result"]
-    parameters=result.get["parameters"]
+    result = req.get("result")
+    parameters = result.get("parameters")
     stateName=parameters.get["geo-state"]
-    topUniveristy={'Virginia':'1)Virgina Polytechnic Institue of State University'
+    topUniveristy={'va':'1)Virgina Polytechnic Institue of State University'
                               '2)University of Virgina'
                               '3)George Mason University'
                               '4)Virginia Commonwealth University'
