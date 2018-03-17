@@ -1,30 +1,4 @@
 
-Conversation opened. 1 unread message.
-
-Skip to content
-Using Gmail with screen readers
-
-  More 
-1 of 312
- 
-chen's 
-Inbox
-x 
-
-mingda chen
-Attachments12:22 PM (0 minutes ago)
-to me 
-
-Attachments area
-	
-Click here to Reply or Forward
-1.96 GB (13%) of 15 GB used
-Manage
-Terms - Privacy
-Last account activity: 0 minutes ago
-Details
-
-Executable File  122 lines (92 sloc)  3.19 KB
 # -*- coding:utf8 -*-
 # !/usr/bin/env python
 # Copyright 2017 Google Inc. All Rights Reserved.
@@ -69,7 +43,7 @@ def webhook():
 
     res1 = processRequest_chen(req)
 
-    res1= json.dumps(res1, indent=4)
+    res 1= json.dumps(res1, indent=4)
     # print(res)
     r1 = make_response(res1)
     r1.headers['Content-Type'] = 'application/json'
@@ -83,7 +57,7 @@ def webhook():
     return r , r1
 ##############################
 def processRequest_chen(req):
-    if req.get("result").get("action") != "topUniversity":
+    if req.get("result").get("action") != "yahooWeatherForecast":
         return {}
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
     yql_query = makeYqlQuery(req)
