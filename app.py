@@ -48,7 +48,6 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-
 def makeWebhookResult(req):
     if req.get("result").get("action") != "topUniveristy":
         return {}
