@@ -15,9 +15,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from __future__ import print_function
-from future.standard_library import install_aliases
-install_aliases()
+
+
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
@@ -55,16 +54,16 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     name = parameters.get("geo-city")
-    interestRate = {'Fairfax': '6.7 %','SunnyVale': '2.9%'}
-    speech = "Today the Interest rate in " + name + ": " + str(interestRate[name])
+    interestRate = {'fairfax': '6.7 %','fallschurch': '2.9%','SunnyVale':'4.5%'}
+    speech = "Today the Interest rate in " + interestRate + ": " + str(interestRate[name])
     print("Response:")
     print(speech)
 
     return {
         "speech": speech,
         "displayText": speech,
-        "data": data,
-        "contextOut": [],
+        # "data": data,
+        # "contextOut": [],
         "source": "interestRates"
     }
 
@@ -75,4 +74,3 @@ if __name__ == '__main__':
     print("Starting app on port %d" % port)
 
     app.run(debug=False, port=port, host='0.0.0.0')
-    
