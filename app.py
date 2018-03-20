@@ -55,7 +55,7 @@ def processRequest(req):
     parameters = result.get("parameters")
     name = parameters.get("geo-city")
     interestRate = {'fairfax': '6.7 %','fallschurch': '2.9%','SunnyVale':'4.5%'}
-    speech = "Today the Interest rate in 6.7"
+    speech = "Today the Interest rate in 6 from webhook"+ name
     print("Response:")
     print(speech)
 
@@ -64,10 +64,8 @@ def processRequest(req):
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "api-ai-interestRates"
+        "source": "apiai-weather-webhook-sample"
     }
-
-
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
