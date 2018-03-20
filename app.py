@@ -55,7 +55,7 @@ def processRequest(req):
     parameters = result.get("parameters")
     name = parameters.get("geo-city")
     interestRate = {'fairfax': '6.7 %','fallschurch': '2.9%','SunnyVale':'4.5%'}
-    speech = "Today the Interest rate in:"  + name + "6.7"
+    speech = "Today the Interest rate in 6.7"
     print("Response:")
     print(speech)
 
@@ -64,7 +64,7 @@ def processRequest(req):
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "interestRates"
+        "source": "api-ai-interestRates"
     }
 
 
