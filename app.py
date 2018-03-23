@@ -23,7 +23,8 @@ from urllib.error import HTTPError
 
 import json
 import os
-
+import urllib
+import request
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -49,24 +50,12 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "interest":
-        return {}
-    result = req.get("result")
-    parameters = result.get("parameters")
-    name = parameters.get("geo-city")
-    interestRate = {'fairfax': '6.7 %','fallschurch': '2.9%','SunnyVale':'4.5%'}
-    speech = "Today the Interest rate in 6 from webhook"+ name+"just updates"
-    print("Response:")
-    print(speech)
-
- def jsonRequest(req):
     if req.get("result").get("action") != "university":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    name = parameters.get("geo-state")
+    param = parameters.get("geo-state")
     main_api='https://api.myjson.com/bins/mjnz7?'
-    param=name
     url=main_api+urllib.parse.urlencode({'parameter':param})
     json_data=requests.get(url).json()
     json_status=json_data[param]
