@@ -39,7 +39,6 @@ def webhook():
 
     print("Request:")
     print(json.dumps(req, indent=4))
-    res1 = jsonRequest(req)
     res = processRequest(req)
 
     res = json.dumps(res, indent=4)
@@ -57,7 +56,7 @@ def processRequest(req):
     param = parameters.get("geo-state")
     main_api='https://api.myjson.com/bins/mjnz7?'
     url=main_api+urllib.parse.urlencode({'parameter':param})
-    json_data=requests.get(url).json()
+    json_data=request.get(url).json()
     json_status=json_data[param]
     topuniveristy=json_status[0]['Top 5 Univeristies']
     speech = "Today the Interest rate in 6 from webhook"+ topuniveristy+"just updates"
