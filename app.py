@@ -54,7 +54,7 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     name = parameters.get("geo-city")
-    interestRate = {'fairfax': '6.7 %','fallschurch': '2.9%','SunnyVale':'4.5%'}
+    interestRate = {'Fairfax': '6.7 %','fallschurch': '2.9%','SunnyVale':'4.5%'}
     speech = "Today the Interest rate in 6 from webhook"+ name+" is "+str(interestRate[name])
     print("Response:")
     print(speech)
