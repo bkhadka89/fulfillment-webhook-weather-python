@@ -23,8 +23,6 @@ from urllib.error import HTTPError
 
 import json
 import os
-import urllib
-import requests
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -71,3 +69,4 @@ if __name__ == '__main__':
     print("Starting app on port %d" % port)
 
     app.run(debug=False, port=port, host='0.0.0.0')
+    
