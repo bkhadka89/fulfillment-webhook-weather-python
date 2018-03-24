@@ -54,7 +54,8 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     name = parameters.get("geo-city")
-    interestRate = {'Fairfax': '6.7 %','Fallschurch': '2.9%','SunnyVale':'4.5%'}
+    name ='Fairfax'
+    interestRate = {'Fairfax': '1)Virgina Polytechnic Institue of State University\n 2)University of Virgina\n  3)George Mason University\n 4) Virginia Commonwealth University\n 5)Old Dominion University'}
     speech = "Today the Interest of "+ name+" is "+str(interestRate[name])
     print("Response:")
     print(speech)
